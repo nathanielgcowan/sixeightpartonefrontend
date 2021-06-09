@@ -44,11 +44,17 @@ class Creature {
         p.innerText = this.description
         deleteButton.innerText = "Delete"
         deleteButton.addEventListener("click", this.deleteCreature)
-        // skillForm.innerHTML =`
-        // <input type="text" placeholder="Add Skill">
-        // <input type="submit">
-        // `
-        creatureLi.append(h2, img, p, creaturesSkills, deleteButton)
+        skillForm.innerHTML =`
+        <input type="text" placeholder="Add Skill">
+        <input type="submit">
+        `
+        skillForm.addEventListener("submit", Skill.createSkill)
+        creaturesSkills.dataset.id = this.id
+        this.skills.forEach(skill => {
+            let newSkill = new Skill(skill)
+            newSkill.renderSkill(creaturesSkills)
+        })
+        creatureLi.append(h2, img, p, creaturesSkills, skillForm, deleteButton)
     }
 
     static submitCreature(event){

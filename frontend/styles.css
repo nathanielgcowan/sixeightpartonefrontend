@@ -1,0 +1,50 @@
+body {
+      background-color: rgb(182, 182, 182);
+    }
+
+h1 {
+      color: #111; 
+      font-family: 'Helvetica Neue', sans-serif;
+      font-size: 50px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      line-height: 1;
+      text-align: center;
+    }
+
+
+p {
+    color: #111;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px; font-weight: 300;
+    line-height: 32px; margin: 0 0 72px;
+    text-align: center;
+  }
+
+
+form {
+  color: #685206;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0 0 24px;
+  text-align: center;
+  text-justify: inter-word;
+  }
+
+image {
+  color: #111;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 32px;
+  margin: 0 0 72px;
+  text-align: center;
+  }
+
+.card {
+  margin: auto;
+  width: 50%;
+  border: 3px solid white;
+  padding: 50px;
+}

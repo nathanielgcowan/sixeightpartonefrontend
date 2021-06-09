@@ -21,7 +21,7 @@ class Creature {
 
     static fetchCreatures(){
         fetch(creaturesURL)
-        .then(res => res.json())
+        .then(response => response.json())
         .then(creatures => {
             for( let c of creatures.data){
                 let newCreatureCard = new Creature(c)

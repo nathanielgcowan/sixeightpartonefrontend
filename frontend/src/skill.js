@@ -12,17 +12,24 @@ class Skill {
         const skillName = event.target.children[0].value
         // console.log(event.target.children[0].value)
         const creaturesSkills = event.target.previousElementSibling
+        // console.log(creaturesSkills)
         const creatureId = event.target.parentElement.dataset.id
+        // console.log(event.target.parentElement.dataset.id)
         Skill.submitSkill(skillName, creaturesSkills, creatureId)
         event.target.reset()
     }
 
     renderSkill(creaturesSkills){
         const li = document.createElement('li')
+        // console.log(li)
         const deleteButton = document.createElement('button')
+        // console.log(deleteButton)
         deleteButton.innerText = "Delete"
         li.dataset.id = this.id
+        // console.log(li.dataset.id)
         li.innerText = this.name
+        // console.log(li.innerText)
+        // console.log(li.innerHTML)
         li.append(deleteButton)
         deleteButton.addEventListener("click", this.deleteSkill)
         creaturesSkills.appendChild(li)

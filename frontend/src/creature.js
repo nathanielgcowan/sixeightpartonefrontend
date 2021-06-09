@@ -12,7 +12,7 @@ class Creature {
         this.renderCreature()
     }
 
-    static renderCreature(){
+    static renderCreatures(creatures){
         card.innerHTML = ""
         for(c of creatures){
             c.renderCreature()

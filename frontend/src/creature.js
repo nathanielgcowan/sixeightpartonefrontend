@@ -11,4 +11,11 @@ class Creature {
         Creature.allCreatures.push(this)
         this.renderCreature()
     }
+
+    static renderCreature(){
+        card.innerHTML = ""
+        for(c of creatures){
+            c.renderCreature()
+        }
+    }
 }

@@ -71,7 +71,15 @@ h2 {
   text-align: left-align;
 }
 
-button
+li {
+  color: black; 
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: -1px;
+  line-height: 1;
+  text-align: left-align;
+}
+
 
 
 /* h2, img, p, creaturesSkills, skillForm, likeCount, likeButton, deleteButton */

@@ -58,7 +58,7 @@ textarea {
 }
 
 .bottom {
-    background-color: green;
+    background-color: white;
     border-style: solid;
 }
 
@@ -71,7 +71,7 @@ h2 {
   text-align: left-align;
 }
 
-li {
+ {
   color: black; 
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 20px;

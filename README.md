@@ -44,7 +44,7 @@ To use this repo. Please read the following instructions.
 
 ### Installation
 
-1. Clone the backend
+1. Clone the [backend](https://github.com/nathanielgcowan/sixeightpartone)
     ```sh
         https://github.com/nathanielgcowan/sixeightpartone
     ```
@@ -75,5 +75,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Nathaniel Cowan - [nathanielgcowan](https://github.com/nathanielgcowan)
-
-Project Backend Link: [https://github.com/nathanielgcowan/sixthreepartonebackend](https://github.com/nathanielgcowan/sixthreepartonebackend)

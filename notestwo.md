@@ -2,7 +2,7 @@
 [*] A link to your project repo, with code for your Rails backend and HTML / CSS / JavaScript frontend.
     https://github.com/nathanielgcowan/sixeightpartonefrontend
 [*] A README.md file describing your application
-[] A Blog Post about your application
+[*] A Blog Post about your application
 [] A 2-4 minute Video Demo introducing your application
 
 [*] The application must be an HTML, CSS, and JavaScript frontend with a Rails API backend.

@@ -7,7 +7,7 @@
         <link href="styles.css" rel="stylesheet">
     </head>
     <body>
-    
+        <div>
         <h1>MTG</h1>
         <p>Add a Card</p>
         <p>
@@ -18,14 +18,17 @@
                 <input type="text" class="creatureimage"><br>
                 <label for="description">Description</label><br>
                 <textarea name="" id="" cols="30" rows="10" class="creaturedescription"></textarea><br>
+                <input type="hidden" class="creaturelikes" value="0">
                 <input type="submit" class="button">
             </form>
         </p>
-
+    </div>
+    <div>
         <ul class="card"></ul>
         <!-- Add JS Files  -->
         <script src="./src/creature.js"></script>
         <script src="./src/index.js"></script>
         <script src="./src/skill.js"></script>
     </body>
+    </div>
 </html>

@@ -7,6 +7,7 @@ class Creature {
         this.name = creature.attributes.name
         this.image = creature.attributes.image
         this.description = creature.attributes.description
+        this.likes = creature.attributes.likes
         this.skills = creature.attributes.skills
         Creature.allCreatures.push(this)
         this.renderCreature()
@@ -29,19 +30,28 @@ class Creature {
         })
     }
 
+
     renderCreature(){
         const creatureLi = document.createElement('li')
         const h2 = document.createElement('h2')
         const img = document.createElement('img')
         const p = document.createElement('p')
         const creaturesSkills = document.createElement('ul')
+
+        const likeCount = document.createElement('p')
+        const likeButton = document.createElement('button')
+
         const deleteButton = document.createElement('button')
         const skillForm = document.createElement('form')
         creatureLi.dataset.id = this.id
         card.appendChild(creatureLi)
         h2.innerText = this.name
         img.src = this.image
+        img.width = 200
         p.innerText = this.description
+        likeCount.innerText = this.likes
+        likeButton.innerText = "Like"
+        likeButton.addEventListener("click", this.addLikes)
         deleteButton.innerText = "Delete"
         deleteButton.addEventListener("click", this.deleteCreature)
         skillForm.innerHTML =`
@@ -54,7 +64,7 @@ class Creature {
             let newSkill = new Skill(skill)
             newSkill.renderSkill(creaturesSkills)
         })
-        creatureLi.append(h2, img, p, creaturesSkills, skillForm, deleteButton)
+        creatureLi.append(h2, img, p, creaturesSkills, skillForm, likeCount, likeButton, deleteButton)
     }
 
     static submitCreature(event){
@@ -68,7 +78,8 @@ class Creature {
             body: JSON.stringify({
                 name: enterCreatureName.value,
                 image: enterCreatureImage.value,
-                description: enterCreatureDescription.value
+                description: enterCreatureDescription.value,
+                likes: enterCreatureLikes.value
             })
         })
         .then(res => res.json())
@@ -77,6 +88,7 @@ class Creature {
             makeACreature.reset()
         })
     }
+    
     deleteCreature(){
         const creatureId = this.parentElement.dataset.id
         fetch(`${creaturesURL}/${creatureId}`,{
@@ -84,4 +96,25 @@ class Creature {
         })
         this.parentElement.remove()
     }
+
+    addLikes(e){
+        e.preventDefault()
+        let more = parseInt(e.target.previousElementSibling.innerText) + 1
+        const creatureId = this.parentElement.dataset.id
+        console.log(e.target.previousElementSibling)
+        fetch(`${creaturesURL}/${creatureId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                "likes": more
+            })
+            })
+          .then(res => res.json())
+          .then((like_obj => {
+            e.target.previousElementSibling.innerText = `${more} likes`;
+          }))
+      }
 }

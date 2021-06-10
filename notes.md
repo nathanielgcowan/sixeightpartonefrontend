@@ -5,8 +5,10 @@
 [*] Communicate in a technical environment
 [*] Project Deliverables
 
-[] A link to your project repo with code for your Rails backend and HTML / CSS / JavaScript frontend.
-[] A README.md file describing your application
+[*] A link to your project repo with code for your Rails backend and HTML / CSS / JavaScript frontend.
+  https://github.com/nathanielgcowan/sixeightpartonefrontend
+[*] A README.md file describing your application
+  check
 [] A Blog Post about your application
 [] A 2-4 minute Video Demo introducing your application
 

@@ -25,11 +25,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-For my Flatiron Project I decided to build an application form forming decks of one of my favorite card games. This is the result.
+For my Flatiron Project I decided to build an application form that creates deck of a favorite card game of mine. This is the result.
 
 Here's why:
 * Complete Project
-* Fill out information about card I play
+* Fill out information about the cards I play
 
 ### Built With
 * JS
@@ -45,16 +45,16 @@ To use this repo. Please read the following instructions.
 ### Installation
 
 1. Clone the backend
-   ```sh
-    https://github.com/nathanielgcowan/sixthreepartonebackend
+    ```sh
+        https://github.com/nathanielgcowan/sixeightpartone
     ```
 2. Clone the frontend repo
    ```sh
-        https://github.com/nathanielgcowan/sixthreepartone.git   
+        https://github.com/nathanielgcowan/sixeightpartonefrontend
    ```
-3. make sure your have everything install
+3. Make sure you have everything install
    ```sh
-   bundle install
+        bundle install
    ```
 
 <!-- CONTRIBUTING -->

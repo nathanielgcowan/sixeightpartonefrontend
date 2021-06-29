@@ -1,3 +1,4 @@
+
 class Skill {
 
     constructor(skill){
@@ -10,7 +11,7 @@ class Skill {
         event.preventDefault()
         const li = document.createElement('li')
         const skillName = event.target.children[0].value
-        // console.log(event.target.children[0].value)
+        console.log(event.target.children[0].value)
         const creaturesSkills = event.target.previousElementSibling
         // console.log(creaturesSkills)
         const creatureId = event.target.parentElement.dataset.id

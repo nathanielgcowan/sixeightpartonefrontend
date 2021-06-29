@@ -1,3 +1,5 @@
+const creaturesURL = "http://localhost:3000/creatures"
+
 class Creature {
 
     static allCreatures = []
@@ -13,6 +15,12 @@ class Creature {
         this.renderCreature()
     }
 
+
+    static returnAllCreatures(){
+        console.log(this.allCreatures)
+        return this.allCreatures
+    }
+
     static renderCreatures(creatures){
         card.innerHTML = ""
         for(let c of creatures){
@@ -21,13 +29,16 @@ class Creature {
     }
 
     static fetchCreatures(){
-        fetch(creaturesURL)
-        .then(response => response.json())
-        .then(creatures => {
-            for( let c of creatures.data){
-                let newCreatureCard = new Creature(c)
-            }
-        })
+        console.log("a")
+            fetch(creaturesURL)
+            .then(response => response.json())
+            .then(creatures => {
+                console.log("b")
+                for( let c of creatures.data){
+                    let newCreatureCard = new Creature(c)
+                }
+            })
+        console.log("c")
     }
 
 
@@ -117,4 +128,5 @@ class Creature {
             e.target.previousElementSibling.innerText = `${more} likes`;
           }))
       }
+
 }

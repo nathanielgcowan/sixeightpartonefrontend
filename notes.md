@@ -10,6 +10,7 @@
 [*] A README.md file describing your application
   check
 [] A Blog Post about your application
+  https://nathanielgcowan.github.io/js_ror_project
 [] A 2-4 minute Video Demo introducing your application
 
 [*] The application must be an HTML, CSS, and JavaScript frontend with a Rails API backend.

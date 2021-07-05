@@ -1,3 +1,4 @@
+const skillsURL = "http://localhost:3000/skills"
 
 class Skill {
 

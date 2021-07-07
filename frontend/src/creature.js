@@ -1,3 +1,6 @@
+const creaturesURL = "http://localhost:3000/creatures"
+const makeACreature = document.getElementById("makeacreature");
+
 class Creature {
 
     static allCreatures = []
@@ -13,7 +16,13 @@ class Creature {
         this.renderCreature()
     }
 
+    static returnAllCreatures(){
+        return this.allCreatures
+    }
+
     static renderCreatures(creatures){
+        const card = document.querySelector(".card")
+
         card.innerHTML = ""
         for(let c of creatures){
             c.renderCreature()
@@ -21,13 +30,16 @@ class Creature {
     }
 
     static fetchCreatures(){
-        fetch(creaturesURL)
-        .then(response => response.json())
-        .then(creatures => {
-            for( let c of creatures.data){
-                let newCreatureCard = new Creature(c)
-            }
-        })
+        console.log("a")
+            fetch(creaturesURL)
+            .then(response => response.json())
+            .then(creatures => {
+                console.log("b")
+                for( let c of creatures.data){
+                    let newCreatureCard = new Creature(c)
+                }
+            })
+        console.log("c")
     }
 
 
@@ -37,6 +49,8 @@ class Creature {
         const img = document.createElement('img')
         const p = document.createElement('p')
         const creaturesSkills = document.createElement('ul')
+        const card = document.querySelector(".card")
+
 
         const likeCount = document.createElement('p')
         const likeButton = document.createElement('button')
@@ -69,6 +83,11 @@ class Creature {
 
     static submitCreature(event){
         event.preventDefault()
+            const enterCreatureName = document.querySelector(".creaturename")
+            const enterCreatureImage = document.querySelector(".creatureimage")
+            const enterCreatureDescription = document.querySelector(".creaturedescription")
+            const enterCreatureLikes = document.querySelector(".creaturelikes")
+            const card = document.querySelector(".card")
         fetch(creaturesURL, {
             method: "POST",
             headers: {
@@ -117,4 +136,5 @@ class Creature {
             e.target.previousElementSibling.innerText = `${more} likes`;
           }))
       }
+    
 }

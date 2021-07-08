@@ -16,34 +16,30 @@ class Creature {
         this.renderCreature()
     }
 
-    static returnAllCreatures(){
+    static returnAllCreatures = () => {
         return this.allCreatures
     }
 
-    static renderCreatures(creatures){
-        const card = document.querySelector(".card")
-
+    static renderCreatures = (creatures) => {
+        const card = document.getElementsByClassName("card")
         card.innerHTML = ""
-        for(let c of creatures){
-            c.renderCreature()
+        for(let creature of creatures){
+            creature.renderCreature()
         }
     }
 
-    static fetchCreatures(){
-        console.log("a")
+    static fetchCreatures= () => {
             fetch(creaturesURL)
             .then(response => response.json())
             .then(creatures => {
-                console.log("b")
-                for( let c of creatures.data){
-                    let newCreatureCard = new Creature(c)
+                for( let creature of creatures.data){
+                    let newCreatureCard = new Creature(creature)
                 }
             })
-        console.log("c")
     }
 
 
-    renderCreature(){
+    renderCreature = () => {
         const creatureLi = document.createElement('li')
         const h2 = document.createElement('h2')
         const img = document.createElement('img')
@@ -81,8 +77,8 @@ class Creature {
         creatureLi.append(h2, img, p, creaturesSkills, skillForm, likeCount, likeButton, deleteButton)
     }
 
-    static submitCreature(event){
-        event.preventDefault()
+    static submitCreature = (e) => {
+        e.preventDefault()
             const enterCreatureName = document.querySelector(".creaturename")
             const enterCreatureImage = document.querySelector(".creatureimage")
             const enterCreatureDescription = document.querySelector(".creaturedescription")
@@ -108,7 +104,7 @@ class Creature {
         })
     }
     
-    deleteCreature(){
+    deleteCreature () {
         const creatureId = this.parentElement.dataset.id
         fetch(`${creaturesURL}/${creatureId}`,{
             method:"DELETE"
@@ -120,7 +116,7 @@ class Creature {
         e.preventDefault()
         let more = parseInt(e.target.previousElementSibling.innerText) + 1
         const creatureId = this.parentElement.dataset.id
-        console.log(e.target.previousElementSibling)
+        // console.log(e.target.previousElementSibling)
         fetch(`${creaturesURL}/${creatureId}`, {
             method: "PATCH",
             headers: {
@@ -131,10 +127,10 @@ class Creature {
                 "likes": more
             })
             })
-          .then(res => res.json())
-          .then((like_obj => {
-            e.target.previousElementSibling.innerText = `${more} likes`;
-          }))
-      }
-    
+            .then(res => res.json())
+            .then((like_obj => {
+                e.target.previousElementSibling.innerText = `${more} likes`;
+        }))
+    }
+
 }

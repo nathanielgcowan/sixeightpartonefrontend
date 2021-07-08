@@ -8,20 +8,20 @@ class Skill {
         this.creature_id = skill.creature_id
     }
 
-    static createSkill(event){
-        event.preventDefault()
+    static createSkill = (e) => {
+        e.preventDefault()
         const li = document.createElement('li')
-        const skillName = event.target.children[0].value
+        const skillName = e.target.children[0].value
         console.log(event.target.children[0].value)
-        const creaturesSkills = event.target.previousElementSibling
+        const creaturesSkills = e.target.previousElementSibling
         // console.log(creaturesSkills)
         const creatureId = event.target.parentElement.dataset.id
         // console.log(event.target.parentElement.dataset.id)
         Skill.submitSkill(skillName, creaturesSkills, creatureId)
-        event.target.reset()
+        e.target.reset()
     }
 
-    renderSkill(creaturesSkills){
+    renderSkill = (creaturesSkills) => {
         const li = document.createElement('li')
         // console.log(li)
         const deleteButton = document.createElement('button')
@@ -37,7 +37,7 @@ class Skill {
         creaturesSkills.appendChild(li)
     }
 
-    static submitSkill(skillName, creaturesSkills, creatureId){
+    static submitSkill = (skillName, creaturesSkills, creatureId) => {
         fetch(skillsURL, {
             method: "POST",
             headers: {
@@ -59,7 +59,7 @@ class Skill {
         })
     }
     
-    deleteSkill(){
+    deleteSkill () {
         const skillId = this.parentElement.dataset.id
         fetch(`${skillsURL}/${skillId}`,{
             method: "DELETE"

@@ -40,40 +40,47 @@ class Creature {
 
 
     renderCreature = () => {
+        // Creature Li
         const creatureLi = document.createElement('li')
-        const h2 = document.createElement('h2')
-        const img = document.createElement('img')
-        const p = document.createElement('p')
-        const creaturesSkills = document.createElement('ul')
-        const card = document.querySelector(".card")
-
-
-        const likeCount = document.createElement('p')
-        const likeButton = document.createElement('button')
-
-        const deleteButton = document.createElement('button')
-        const skillForm = document.createElement('form')
         creatureLi.dataset.id = this.id
-        card.appendChild(creatureLi)
+        // Header
+        const h2 = document.createElement('h2')
         h2.innerText = this.name
+        // Image
+        const img = document.createElement('img')
         img.src = this.image
         img.width = 200
+        // Paragraph
+        const p = document.createElement('p')
         p.innerText = this.description
+        // Creature Skills
+        const creaturesSkills = document.createElement('ul')
+        creaturesSkills.dataset.id = this.id
+        // Creature Card
+        const card = document.querySelector(".card")
+        card.appendChild(creatureLi)
+        // Like Button
+        const likeCount = document.createElement('p')
         likeCount.innerText = this.likes
+        const likeButton = document.createElement('button')
         likeButton.innerText = "Like"
         likeButton.addEventListener("click", this.addLikes)
+        // Delete Buttom
+        const deleteButton = document.createElement('button')
         deleteButton.innerText = "Delete"
         deleteButton.addEventListener("click", this.deleteCreature)
+        // Skill Form
+        const skillForm = document.createElement('form')
         skillForm.innerHTML =`
         <input type="text" placeholder="Add Skill">
         <input type="submit">
         `
         skillForm.addEventListener("submit", Skill.createSkill)
-        creaturesSkills.dataset.id = this.id
         this.skills.forEach(skill => {
             let newSkill = new Skill(skill)
             newSkill.renderSkill(creaturesSkills)
         })
+        // Append Everything
         creatureLi.append(h2, img, p, creaturesSkills, skillForm, likeCount, likeButton, deleteButton)
     }
 
